@@ -8,14 +8,13 @@ public class TimeMiddleware {
 
     //Toda la informacion de la REQUEST viene en el parametro CONTEXT
     public async Task Invoke(HttpContext context) {
+        await next(context);
 
         //pregunto si en la URL esta el parametro ?time
         if(context.Request.Query.Any( parametro => parametro.Key == "time" )){
             await context.Response.WriteAsync(DateTime.Now.ToShortTimeString());
             return;
         }
-            await next(context);
-
     }
 }
 
