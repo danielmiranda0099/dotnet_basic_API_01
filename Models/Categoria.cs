@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace API.Models;
+namespace API_task.Models;
 
 /*
 NOTA: FLUENT API predomina sobre Data Anotation (fluent api siobre escribe la configuracion por Atributos)

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace API.Models;
+namespace API_task.Models;
 
 public class Tarea {
     //[Key]//indica llave principal de la tabla

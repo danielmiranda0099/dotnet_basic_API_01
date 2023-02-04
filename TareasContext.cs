@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using API.Models;
+using API_task.Models;
 
-namespace proyectoef;
+namespace API_task;
 
 /****   se genera las tablas y sus relaciones de acurdo a los modelos y se
         cargan en memoria ******/
