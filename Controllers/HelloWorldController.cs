@@ -11,6 +11,7 @@ public class HelloWorldController : ControllerBase {
         this.hellowWorldService = hellowWorldService;
     }
 
+    [HttpGet]
     public IActionResult Get() {
         return Ok( hellowWorldService.GetHellowWorld() );
     }
