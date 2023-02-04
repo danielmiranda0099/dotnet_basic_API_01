@@ -1,3 +1,5 @@
+using API_task.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +11,9 @@ builder.Services.AddSwaggerGen();
 
 //INYECCION de dependencia
 builder.Services.AddScoped<IHellowWorldService, HellowWorldService>();
+//INYECTANDO servicios como dependencias
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<ITareaService, TareaService>();
 
 var app = builder.Build();
 
