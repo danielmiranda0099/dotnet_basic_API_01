@@ -1,4 +1,6 @@
+using API_task;
 using API_task.Services;
+using API_task.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//INYECTANDO context
+builder.Services.AddSqlServer<TareasContext>( builder.Configuration.GetConnectionString("DBConection") );
+
 //INYECCION de dependencia
+builder.Services.AddScoped<CreateDBController>();
 builder.Services.AddScoped<IHellowWorldService, HellowWorldService>();
 //INYECTANDO servicios como dependencias
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
