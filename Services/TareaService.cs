@@ -1,7 +1,7 @@
 using API_task.Models;
 
 namespace API_task.Services;
- public class TareaService : ITareaService{
+public class TareaService : ITareaService{
     TareasContext context;
 
     public TareaService(TareasContext DBcontext) {
@@ -28,9 +28,19 @@ namespace API_task.Services;
             await context.SaveChangesAsync();
         }
     }
- }
+    public async Task Delete(Guid id) {
+        var tareaActual = context.Tareas.Find(id);
+
+        if(tareaActual != null){
+            context.Remove(tareaActual);
+            await context.SaveChangesAsync();
+        }
+    }
+}
 
 public interface ITareaService {
     IEnumerable<Tarea> Get();
     Task Save(Tarea tarea);
+    Task Update(Guid id,Tarea tarea);
+    Task Delete(Guid id);
 }
